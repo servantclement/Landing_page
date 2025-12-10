@@ -203,6 +203,38 @@ body {
   border-radius: 12px;
   min-width: 200px;
   flex: 1;
+  overflow: hidden;
+}
+.thumb-link {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: inherit; /* figcaption garde sa couleur */
+}
+.thumb img {
+  width: 100%;
+  height: 160px; /* fixe la hauteur selon ton design */
+  object-fit: cover; /* la clé : coupe proprement l’image */
+  border-radius: 8px;
+}
+.thumb figcaption {
+  font-size: 14px;
+  font-weight: 500;
+}
+.thumb:hover img {
+  transform: scale(1.04);
+  transition: 0.4s ease;
+}
+
+.thumb {
+  transition: transform 0.3s ease;
+}
+
+.thumb:hover {
+  transform: translateY(-4px);
 }
 
 /* CTA band */
@@ -272,6 +304,18 @@ body {
 
 /* Responsive */
 @media (max-width: 880px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .nav .cta {
+    margin-top: 12px;
+    align-self: stretch;
+    text-align: center;
+  }
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 18px;
