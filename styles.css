@@ -77,9 +77,8 @@ body {
 .nav .cta:hover {
   transform: scale(1.05);
   color: var(--accent);
-  background: rgb(228, 162, 222);
+  background: rgba(228, 162, 222, 0.295);
 }
-
 .hero {
   padding: 56px 0;
   background: linear-gradient(180deg, white, rgba(255, 255, 255, 0.9));
@@ -124,7 +123,7 @@ body {
 }
 .btn.primary:hover {
   color: var(--accent);
-  background: rgb(228, 162, 222);
+  background: rgba(228, 162, 222, 0.295);
   text-decoration: underline;
 }
 .btn.ghost {
@@ -137,7 +136,7 @@ body {
 .btn.ghost:hover {
   transform: rotate(360deg) scale(1.05);
   color: var(--accent);
-  background: rgb(228, 162, 222);
+  background: rgb(228, 162, 222, 0.295);
 }
 .btn.small {
   padding: 8px 12px;
@@ -215,6 +214,12 @@ body {
   position: relative;
   box-shadow: 0 6px 18px rgba(12, 16, 30, 0.04);
 }
+.offer-card:hover {
+  box-shadow: 0 12px 24px rgba(38, 75, 209, 0.225);
+  border: 3px solid rgba(37, 99, 235, 0.1);
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
 .offer-card .price {
   font-size: 22px;
   font-weight: 800;
@@ -234,6 +239,16 @@ body {
 .offer-card.popular {
   transform: scale(1.02);
   border: 1px solid rgba(37, 99, 235, 0.06);
+}
+.btn.small {
+  border: 2px solid var(--accent);
+  padding: 4px 6px;
+}
+.small:hover {
+  transform: scale(1.5);
+  transform: rotate(360deg) scale(1.05);
+  color: var(--accent);
+  background: rgb(228, 162, 222);
 }
 
 /* Portfolio */
