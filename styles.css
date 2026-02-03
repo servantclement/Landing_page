@@ -72,10 +72,12 @@ body {
   color: white;
   text-decoration: none;
   display: inline-block;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease-in-out;
 }
 .nav .cta:hover {
   transform: scale(1.05);
+  color: var(--accent);
+  background: rgb(228, 162, 222);
 }
 
 .hero {
