@@ -248,7 +248,7 @@ body {
   transform: scale(1.5);
   transform: rotate(360deg) scale(1.05);
   color: var(--accent);
-  background: rgb(228, 162, 222);
+  background: rgb(228, 162, 222, 0.295);
 }
 
 /* Portfolio */
@@ -264,6 +264,12 @@ body {
   min-width: 200px;
   flex: 1;
   overflow: hidden;
+}
+.thumb:hover {
+  box-shadow: 0 12px 24px rgba(38, 75, 209, 0.225);
+  border: 3px solid rgba(37, 99, 235, 0.1);
+  transform: scale(1.5);
+  transition: transform 0.3s ease;
 }
 .thumb-link {
   display: flex;
