@@ -1,5 +1,5 @@
 /* Simple responsive CSS for the landing page */
-
+/* ---------- Reset / Base ---------- */
 :root {
   --maxw: 1100px;
   --accent: #2563eb;
