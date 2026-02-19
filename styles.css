@@ -449,13 +449,23 @@ a {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 20px;
 }
 .thumb {
-  background: linear-gradient(180deg, #fff, #f8fafc);
+  background: var(--vbg);
   padding: 18px;
   border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
   transition: transform 0.3s ease;
+}
+.thumb-description {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 8px;
 }
 .thumb-link {
   display: flex;
@@ -478,9 +488,12 @@ a {
   font-weight: 500;
 }
 .thumb:hover {
-  box-shadow: 0 12px 24px rgba(38, 75, 209, 0.225);
-  border: 3px solid rgba(37, 99, 235, 0.1);
-  transform: translateY(-4px);
+  transform: translateY(-1px) scale(1.05);
+  color: var(--accent);
+  background: rgba(228, 162, 222, 0.295);
+  box-shadow: 0 14px 35px rgba(99, 102, 241, 0.22);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(34, 211, 238, 0.25);
 }
 .thumb:hover img {
   transform: scale(1.04);
