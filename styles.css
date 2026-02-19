@@ -10,9 +10,11 @@
   --accent: #6366f1;
   --accent2: #22d3ee;
   --bg: #0f172a;
+  --vbg: #020e21c6;
+  --card: #111827;
+  --surface: #1f2937;
   --text: #f9fafb;
   --muted: #6b7280;
-  --card: #ffffff;
   --hover-text: #1e40af;
   --border: 1px solid rgba(255, 255, 255, 0.08);
   --radius: 12px;
@@ -330,26 +332,47 @@ a {
   color: var(--muted);
   margin: 0 0 22px;
 }
+.services {
+  background: var(--bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+}
 /* Cards -> mobile: stack */
 .cards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 18px;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 20px;
 }
 .card {
-  background: var(--card);
+  background-color: pink;
   padding: 18px;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(38, 75, 209, 0.04);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.card-color {
+  background: var(--vbg);
+  border-radius: var(--radius);
 }
 .card:hover {
-  box-shadow: 0 12px 24px rgba(38, 75, 209, 0.225);
-  border: 3px solid rgba(37, 99, 235, 0.1);
-  transform: translateY(-6px);
-  transition: transform 0.3s ease;
+  transform: translateY(-1px) scale(1.05);
+  color: var(--accent);
+  background: rgba(228, 162, 222, 0.295);
+  box-shadow: 0 14px 35px rgba(99, 102, 241, 0.22);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(34, 211, 238, 0.25);
 }
 .cards .card h4 {
+  color: var(--text);
   margin-top: 0;
+}
+.cards .card p {
+  color: var(--muted);
 }
 /* =========================================
   OFFERS (MOBILE FIRST)
