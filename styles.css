@@ -1,14 +1,43 @@
 /* Simple responsive CSS for the landing page */
-/* ---------- Reset / Base ---------- */
+/* =========================================
+   RESET + BASE
+========================================= */
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --maxw: 1100px;
-  --accent: #2563eb;
-  --bg: #f7f9fc;
+
+  --accent: #6366f1;
+  --accent2: #22d3ee;
+
+  --bg: #0f172a;
+  --text: #f9fafb;
   --muted: #6b7280;
+
   --card: #ffffff;
+
   --hover-text: #1e40af;
+
+  --border: 1px solid rgba(255, 255, 255, 0.08);
+
   --radius: 12px;
+
   --gap: 18px;
+
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 32px;
+  --s5: 48px;
+  --s6: 72px;
+
+  --r1: 12px;
+  --r2: 16px;
+  --r3: 20px;
+  --r4: 24px;
+
   font-family:
     Inter,
     system-ui,
@@ -17,86 +46,236 @@
     Roboto,
     "Helvetica Neue",
     Arial;
+
   color-scheme: light;
 }
 
-* {
-  box-sizing: border-box;
-}
 body {
   margin: 0;
-  background: var(--bg);
   color: #0f172a;
   line-height: 1.45;
   font-size: 16px;
+
+  background:
+    radial-gradient(
+      900px 500px at 20% 10%,
+      rgba(99, 102, 241, 0.18),
+      transparent 55%
+    ),
+    radial-gradient(
+      700px 450px at 80% 20%,
+      rgba(34, 211, 238, 0.12),
+      transparent 60%
+    ),
+    var(--bg);
 }
+
+a {
+  color: inherit;
+}
+
+/* Container = mobile-first */
 .container {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 28px;
+  padding: 16px;
 }
 
+/* =========================================
+   HEADER + NAV (MOBILE FIRST + BURGER details)
+========================================= */
 .header {
-  background: white;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
   position: sticky;
   top: 0;
   z-index: 20;
 }
+
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
 }
+
+/* Brand */
 .brand {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   padding: 10px 0;
-}
-.nav a {
-  margin-left: 18px;
+  color: var(--text);
   text-decoration: none;
-  color: var(--muted);
+}
+
+/* Desktop nav hidden by default (mobile-first) */
+.nav--desktop {
+  display: none;
+}
+
+/* Burger visible by default */
+.nav--mobile {
+  display: block;
+  position: relative;
+}
+
+/* Burger button */
+.burger {
+  position: relative;
+}
+
+.burger > summary {
+  list-style: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r3);
+  background: rgba(255, 255, 255, 0.06);
+  border: var(--border);
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+.burger > summary:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(34, 211, 238, 0.25);
+  transform: translateY(-1px);
+}
+.burger > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Icon burger */
+.lines {
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  position: relative;
+  display: block;
+}
+.lines::before,
+.lines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+}
+.lines::before {
+  top: -7px;
+}
+.lines::after {
+  top: 7px;
+}
+
+/* Panel menu */
+.panel {
+  position: absolute;
+  right: 0;
+  top: 56px;
+  min-width: 240px;
+  padding: 12px;
+  border-radius: var(--r3);
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  border: var(--border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.burger:not([open]) .panel {
+  display: none;
+}
+
+/* Animation X */
+.burger[open] .lines {
+  background: transparent;
+}
+.burger[open] .lines::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+.burger[open] .lines::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* Link styles (shared desktop/mobile) */
+.navLink {
+  font-size: 12px;
+  padding: 10px 12px;
+  border-radius: var(--r3);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+  color: var(--text);
   font-weight: 600;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
 }
 .navLink:hover {
-  color: var(--hover-text);
-  text-decoration: underline;
-  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(34, 211, 238, 0.25);
+  transform: translateY(-1px);
 }
-.nav .cta {
-  padding: 8px 12px;
-  border-radius: 8px;
+
+/* CTA (shared) */
+.cta {
+  padding: 10px 12px;
+  border-radius: var(--r4);
   background: var(--accent);
-  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
   text-decoration: none;
   display: inline-block;
+  font-weight: 700;
   transition: transform 0.2s ease-in-out;
 }
-.nav .cta:hover {
+.cta:hover {
   transform: scale(1.05);
   color: var(--accent);
   background: rgba(228, 162, 222, 0.295);
+  border-color: rgba(34, 211, 238, 0.25);
 }
+
+/* =========================================
+   HERO (MOBILE FIRST)
+========================================= */
 .hero {
-  padding: 56px 0;
-  background: linear-gradient(180deg, white, rgba(255, 255, 255, 0.9));
+  padding: 32px 0;
 }
+
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 34px;
+  grid-template-columns: 1fr; /* mobile-first */
+  gap: 18px;
   align-items: center;
+
+  background: var(--bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
 }
+
 .hero h2 {
-  font-size: 28px;
+  font-size: 24px;
   margin: 0 0 12px;
+  color: var(--text);
 }
+
 .lead {
   color: var(--muted);
   margin: 0 0 18px;
 }
+
+/* CTA buttons */
 .hero-ctas .btn {
   margin-right: 12px;
 }
@@ -106,19 +285,21 @@ body {
   text-decoration: none;
   padding: 10px 16px;
   border-radius: 10px;
-  border: 1px solid-transparent;
+  border: 1px solid transparent; /* FIX */
   font-weight: 700;
+
   transition:
     transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
     background-color 0.25s ease,
     color 0.25s ease;
+
   transform-origin: center;
   will-change: transform;
 }
+
 .btn.primary {
   background: var(--accent);
-  color: white;
-  display: inline-block;
+  color: #fff;
   transition: transform 0.2s ease-in-out;
 }
 .btn.primary:hover {
@@ -126,18 +307,18 @@ body {
   background: rgba(228, 162, 222, 0.295);
   text-decoration: underline;
 }
+
 .btn.ghost {
   background: transparent;
   border: 1px solid rgba(15, 23, 42, 0.06);
   color: var(--accent);
 }
-
-/* Animation hover pour boutons ghost */
 .btn.ghost:hover {
   transform: rotate(360deg) scale(1.05);
   color: var(--accent);
-  background: rgb(228, 162, 222, 0.295);
+  background: rgba(228, 162, 222, 0.295);
 }
+
 .btn.small {
   padding: 8px 12px;
 }
@@ -163,31 +344,35 @@ body {
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
 }
 
-/* Sections */
+/* =========================================
+   SECTIONS + CARDS (MOBILE FIRST)
+========================================= */
 .section {
-  padding: 44px 0;
+  padding: 32px 0;
 }
+
 .section h3 {
   margin: 0 0 8px;
   font-size: 20px;
+  color: var(--text);
 }
+
 .section-sub {
   color: var(--muted);
   margin: 0 0 22px;
 }
 
+/* Cards -> mobile: stack */
 .cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 18px;
-  flex-wrap: wrap;
 }
 .card {
   background: var(--card);
   padding: 18px;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(38, 75, 209, 0.04);
-  flex: 1;
-  min-width: 220px;
 }
 .card:hover {
   box-shadow: 0 12px 24px rgba(38, 75, 209, 0.225);
@@ -199,11 +384,13 @@ body {
   margin-top: 0;
 }
 
-/* Offers grid */
+/* =========================================
+   OFFERS (MOBILE FIRST)
+========================================= */
 .offers-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  grid-template-columns: 1fr;
+  gap: 12px;
   margin-top: 12px;
 }
 .offer-card {
@@ -231,7 +418,7 @@ body {
   top: 12px;
   right: 12px;
   background: #111827;
-  color: white;
+  color: #fff;
   padding: 6px 8px;
   border-radius: 8px;
   font-size: 12px;
@@ -240,37 +427,35 @@ body {
   transform: scale(1.02);
   border: 1px solid rgba(37, 99, 235, 0.06);
 }
+
+/* Attention: tu avais des doublons/incohérences, je stabilise */
 .btn.small {
   border: 2px solid var(--accent);
-  padding: 4px 6px;
+  padding: 8px 12px;
 }
-.small:hover {
-  transform: scale(1.5);
+.btn.small:hover {
   transform: rotate(360deg) scale(1.05);
   color: var(--accent);
-  background: rgb(228, 162, 222, 0.295);
+  background: rgba(228, 162, 222, 0.295);
 }
 
-/* Portfolio */
+/* =========================================
+   PORTFOLIO (MOBILE FIRST)
+========================================= */
 .gallery {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 12px;
-  flex-wrap: wrap;
 }
+
 .thumb {
   background: linear-gradient(180deg, #fff, #f8fafc);
   padding: 18px;
   border-radius: 12px;
-  min-width: 200px;
-  flex: 1;
   overflow: hidden;
-}
-.thumb:hover {
-  box-shadow: 0 12px 24px rgba(38, 75, 209, 0.225);
-  border: 3px solid rgba(37, 99, 235, 0.1);
-  transform: scale(1.5);
   transition: transform 0.3s ease;
 }
+
 .thumb-link {
   display: flex;
   flex-direction: column;
@@ -278,58 +463,66 @@ body {
   height: 100%;
   width: 100%;
   text-decoration: none;
-  color: inherit; /* figcaption garde sa couleur */
+  color: inherit;
 }
+
 .thumb img {
   width: 100%;
-  height: 160px; /* fixe la hauteur selon ton design */
-  object-fit: cover; /* la clé : coupe proprement l’image */
+  height: 160px;
+  object-fit: cover;
   border-radius: 8px;
+  transition: 0.4s ease;
 }
+
 .thumb figcaption {
   font-size: 14px;
   font-weight: 500;
 }
-.thumb:hover img {
-  transform: scale(1.04);
-  transition: 0.4s ease;
-}
-
-.thumb {
-  transition: transform 0.3s ease;
-}
 
 .thumb:hover {
+  box-shadow: 0 12px 24px rgba(38, 75, 209, 0.225);
+  border: 3px solid rgba(37, 99, 235, 0.1);
   transform: translateY(-4px);
 }
+.thumb:hover img {
+  transform: scale(1.04);
+}
 
-/* CTA band */
+/* =========================================
+   CTA BAND (MOBILE FIRST)
+========================================= */
 .cta-band {
   background: linear-gradient(90deg, #eef2ff, #ffffff);
-  padding: 28px;
+  padding: 20px;
   border-radius: 12px;
   margin: 24px 0;
 }
+
 .cta-inner {
   display: flex;
-  align-items: center;
+  flex-direction: column; /* mobile-first */
+  align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
 }
 
-/* Contact */
+/* =========================================
+   CONTACT (MOBILE FIRST)
+========================================= */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 24px;
+  grid-template-columns: 1fr; /* mobile-first */
+  gap: 12px;
   align-items: start;
 }
+
 .form {
   background: var(--card);
   padding: 18px;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(12, 16, 30, 0.04);
 }
+
 .form label {
   display: block;
   margin-top: 12px;
@@ -337,6 +530,7 @@ body {
   color: var(--muted);
   font-size: 14px;
 }
+
 .form input,
 .form textarea {
   width: 100%;
@@ -346,6 +540,7 @@ body {
   border: 1px solid #e6eef8;
   background: #fff;
 }
+
 .contact-info .info-block {
   background: var(--card);
   padding: 12px;
@@ -353,49 +548,112 @@ body {
   margin-bottom: 12px;
 }
 
-/* Footer */
+/* =========================================
+   FOOTER
+========================================= */
 .footer {
   padding: 18px 0;
   color: var(--muted);
 }
+
 .footer-inner {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .footer p {
   margin: 0;
   font-size: 14px;
 }
 
-/* Responsive */
-@media (max-width: 880px) {
-  .nav {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+/* =========================================
+  BREAKPOINTS (MIN-WIDTH) = MOBILE FIRST
+========================================= */
+
+/* >= 600px : un peu plus d'air, portfolio 2 colonnes */
+@media (min-width: 600px) {
+  .container {
+    padding: 20px;
   }
 
-  .nav .cta {
-    margin-top: 12px;
-    align-self: stretch;
-    text-align: center;
+  .hero {
+    padding: 44px 0;
   }
-  .hero-grid {
-    grid-template-columns: 1fr;
+  .hero h2 {
+    font-size: 26px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* >= 881px : desktop layout (nav horizontal, hero 2 colonnes, grids) */
+@media (min-width: 881px) {
+  .container {
+    padding: 28px;
+  }
+
+  /* Nav desktop visible, burger caché */
+  .nav--desktop {
+    display: flex;
+    align-items: center;
     gap: 18px;
   }
+  .nav--desktop a {
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .nav--mobile {
+    display: none;
+  }
+
+  /* Hero: 2 colonnes */
+  .hero-grid {
+    grid-template-columns: 1fr 360px;
+    gap: 34px;
+  }
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  /* Cards: 2-3 colonnes selon place */
+  .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Offers: 3 colonnes */
   .offers-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
   }
+
+  /* Contact: 2 colonnes */
   .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
   }
+
+  /* CTA band row */
   .cta-inner {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Portfolio: retour flex-wrap proche de ton original, si tu préfères */
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* >= 1100px : optionnel (micro-ajustements) */
+@media (min-width: 1100px) {
+  .hero {
+    padding: 56px 0;
+  }
+  .section {
+    padding: 44px 0;
   }
 }

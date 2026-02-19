@@ -15,12 +15,25 @@
     <header class="header">
       <div class="container header-inner">
         <h1 class="brand">ClemvitrineDigitale</h1>
-        <nav class="nav">
+        <nav class="nav nav--desktop">
           <a class="navLink" href="#services">Services</a>
           <a class="navLink" href="#offres">Offres</a>
           <a class="navLink" href="#portfolio">Portfolio</a>
           <a href="#contact" class="cta">Demander un devis</a>
         </nav>
+        <!-- Burger mobile (sans JS) -->
+        <details class="burger nav--mobile">
+          <summary aria-label="Ouvrir le menu">
+            <span class="lines" aria-hidden="true"></span>
+          </summary>
+
+          <div class="panel" role="menu">
+            <a class="navLink" href="#services">Services</a>
+            <a class="navLink" href="#offres">Offres</a>
+            <a class="navLink" href="#portfolio">Portfolio</a>
+            <a class="cta" href="#contact">Demander un devis</a>
+          </div>
+        </details>
       </div>
     </header>
 
