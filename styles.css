@@ -196,26 +196,31 @@ a {
     border-color 0.15s ease;
 }
 .navLink:hover {
+  transform: translateY(-1px) scale(1.05);
+  color: var(--accent);
+  background: rgba(228, 162, 222, 0.295);
+  box-shadow: 0 14px 35px rgba(99, 102, 241, 0.22);
   background: rgba(255, 255, 255, 0.09);
   border-color: rgba(34, 211, 238, 0.25);
-  transform: translateY(-1px);
 }
 /* CTA (shared) */
 .cta {
   padding: 10px 12px;
+  color: #0b1220;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
   border-radius: var(--r4);
-  background: var(--accent);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #fff;
   text-decoration: none;
   display: inline-block;
   font-weight: 700;
   transition: transform 0.2s ease-in-out;
 }
 .cta:hover {
-  transform: scale(1.05);
+  transform: translateY(-1px) scale(1.05);
   color: var(--accent);
   background: rgba(228, 162, 222, 0.295);
+  box-shadow: 0 14px 35px rgba(99, 102, 241, 0.22);
+  background: rgba(255, 255, 255, 0.09);
   border-color: rgba(34, 211, 238, 0.25);
 }
 /* =========================================
@@ -271,6 +276,7 @@ a {
     opacity 0.15s ease;
 }
 .btn.primary {
+  margin-top: 10px;
   color: #0b1220;
   background: linear-gradient(90deg, var(--accent), var(--accent2));
   box-shadow: 0 14px 35px rgba(99, 102, 241, 0.22);
@@ -352,19 +358,11 @@ a {
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(38, 75, 209, 0.04);
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.25);
 }
 .card-color {
   background: var(--vbg);
   border-radius: var(--radius);
-}
-.card:hover {
-  transform: translateY(-1px) scale(1.05);
-  color: var(--accent);
-  background: rgba(228, 162, 222, 0.295);
-  box-shadow: 0 14px 35px rgba(99, 102, 241, 0.22);
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(34, 211, 238, 0.25);
 }
 .cards .card h4 {
   color: var(--text);
@@ -520,6 +518,12 @@ a {
 /* =========================================
   CONTACT (MOBILE FIRST)
 ========================================= */
+.contact {
+  background: var(--bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 20px;
+}
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -550,9 +554,25 @@ a {
 }
 .contact-info .info-block {
   background: var(--card);
+  border: 1px solid rgba(34, 211, 238, 0.25);
   padding: 12px;
   border-radius: 10px;
   margin-bottom: 12px;
+}
+.contact-offres {
+  font-size: 16px;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+.contact-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--muted);
+}
+.contact-email {
+  color: var(--muted);
+  margin: 0;
 }
 /* =========================================
   FOOTER
