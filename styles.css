@@ -226,7 +226,7 @@ a {
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr; /* mobile-first */
+  grid-template-columns: 1fr;
   gap: 18px;
   align-items: center;
   background: var(--bg);
@@ -502,24 +502,27 @@ a {
   CTA BAND (MOBILE FIRST)
 ========================================= */
 .cta-band {
-  background: linear-gradient(90deg, #eef2ff, #ffffff);
+  background: var(--bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
   padding: 20px;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   margin: 24px 0;
 }
 .cta-inner {
   display: flex;
-  flex-direction: column; /* mobile-first */
+  flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
+  color: var(--muted);
 }
 /* =========================================
   CONTACT (MOBILE FIRST)
 ========================================= */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr; /* mobile-first */
+  grid-template-columns: 1fr;
   gap: 12px;
   align-items: start;
 }
