@@ -60,6 +60,15 @@ body {
 a {
   color: inherit;
 }
+h4 {
+  font-size: 18px;
+  margin: 0;
+  color: var(--text);
+}
+p {
+  color: var(--muted);
+  margin: 0;
+}
 /* Container = mobile-first */
 .container {
   max-width: var(--maxw);
@@ -397,11 +406,6 @@ a {
   background: rgba(255, 255, 255, 0.09);
   border-color: rgba(34, 211, 238, 0.25);
 }
-.offre-title {
-  font-size: 18px;
-  margin: 0;
-  color: var(--text);
-}
 .offre-features {
   list-style: none;
   padding: 0;
@@ -569,10 +573,6 @@ a {
   padding: 0;
   margin: 0;
   color: var(--muted);
-}
-.contact-email {
-  color: var(--muted);
-  margin: 0;
 }
 /* =========================================
   FOOTER
