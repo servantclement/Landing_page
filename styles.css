@@ -604,8 +604,20 @@ p {
   .hero h2 {
     font-size: 26px;
   }
+  .hero-ctas {
+    flex-direction: row;
+  }
+  .btn.primary {
+    width: 50%;
+  }
+  .btn.small {
+    width: 50%;
+  }
   .gallery {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .cta-inner {
+    align-items: center;
   }
 }
 /* >= 881px : desktop layout (nav horizontal, hero 2 colonnes, grids) */
